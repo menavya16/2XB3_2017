@@ -24,6 +24,15 @@ public class Dictionary {
         this.values.add(value);    
     }
     
+    /**
+     * The (key,value) pairs cannot be more than 20, and for every key inserted there 
+     * should be a value. There can be various values for a given key but a key cannot 
+     * have the same value. If these conditions are met then the (key,value) pair will
+     * be added to it. 
+     * 
+     * @param keys
+     * @param values
+     */
     public Dictionary(int[] keys, String[] values) {
         if(keys.length > 20 | values.length > 20) {
             System.out.println("Error maximum entries for dictionary is 20");
