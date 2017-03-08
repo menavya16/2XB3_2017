@@ -11,6 +11,14 @@ package dictionary_dev;
  *       submitted is my own individual work.
  */
 
+
+/**
+ * OVERALL COMMENTS - 
+ * -> the setup and teardown would have made the testing easier 
+ * -> Declaration of variables in the beginning of the class could have made it
+ * easier to preserve encapsulation
+ * -> Assert statements inclusion would have avoided null checks
+ */
 import java.util.*;
 import java.io.*;
 public class testDictionary {
@@ -120,7 +128,8 @@ public class testDictionary {
 			String value = current.split(",")[1];
 			d.insert(key, value);
 			d.remove(key);
-			if(d.isEmpty() != true) {// If the list is not empty and conains the 
+			if(d.isEmpty() != true) {// If the list is not empty, it removes the key and 
+				// value that was inserted earlier 
 				fw.write("\nError with key" + String.valueOf(key));
 			}
 		}
@@ -129,6 +138,10 @@ public class testDictionary {
 		fw.close();
 	}
 	
+	/**
+	 *tests the contains method from Dictionary.java 
+	 * @throws Exception
+	 */
 	public static void testContains() throws Exception {
 		FileWriter fw = new FileWriter("output.txt");
 		fw.write("\nTesting");
@@ -148,6 +161,10 @@ public class testDictionary {
 		fw.close();
 	}
 	
+	/**
+	 * tests the count method from Dictionary.java
+	 * @throws Exception
+	 */
 	public static void testCount() throws Exception {
 		FileWriter fw = new FileWriter("output.txt");
 		fw.write("\nTesting");
@@ -167,6 +184,10 @@ public class testDictionary {
 		fw.close();
 	}
 	
+	/**
+	 * tests the isEmpty from Dictioanry.java
+	 * @throws Exception
+	 */
 	public static void testIsEmpty() throws Exception {
 		FileWriter fw = new FileWriter("output.txt");
 		fw.write("\nTesting");
@@ -187,6 +208,10 @@ public class testDictionary {
 		fw.close();
 	}
 	
+	/**
+	 * tests the print keys from Dictionary.java
+	 * @throws Exception
+	 */
 	public static void testPrintKeys() throws Exception {
 		FileWriter fw = new FileWriter("output.txt");
 		fw.write("\nTesting");
