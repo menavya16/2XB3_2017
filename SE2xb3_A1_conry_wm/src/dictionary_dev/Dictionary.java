@@ -115,35 +115,60 @@ public class Dictionary {
         return this.keys.get(index).intValue();
     }
     
-   
+    /**
+     *When the user inputs the key, the corresponding (key,value) pair is removed from the 
+     *arraylist
+     * @param key
+     */ 
     public void remove(int key) {
         int index = this.keys.indexOf(Integer.valueOf(key));
         this.values.remove(index);
         this.keys.remove(index);
     }
     
+    /**
+     * Compares the string values at two different keys to check whether 
+     * or not the values are the same
+     * @param key1
+     * @param key2
+     * @return
+     */
     public boolean compare(int key1, int key2) {
         int index1 = this.keys.indexOf(key1);
         int index2 = this.keys.indexOf(key2);
-        if(this.values.get(index1).equals(this.values.get(index2))) {
-            return true;
-        } else {
-            return false;
+        if(this.values.get(index1).equals(this.values.get(index2))) {//If the value of the two keys are equal
+            return true;// it returns true
+        } else {// otherwise 
+            return false;// it returns false
         }
     }
-
+    
+    /**
+     * @param key
+     * @return checks whether or not key exists in the arraylist
+     */
     public boolean contains(int key) {
         return this.keys.contains(Integer.valueOf(key));
     }
     
+    /**
+     * 
+     * @return total (key,value) pairs in the list
+     */
     public int count() {
     	return this.keys.size();
     }
     
+    /**
+     * @return - true if the list is empty false if otherwise
+     */
     public boolean isEmpty() {
     	return this.keys.isEmpty();
     }
     
+    /**
+     * prints the keys in {key1,key2,key3} format
+     */
     public void printKeys() {
     	System.out.print("{");
     	for(int i = 0; i < this.keys.size(); i++) {
