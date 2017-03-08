@@ -58,7 +58,7 @@ public class Dictionary {
             	   // as multiple keys can have same values but vice versa is not allowed
                    System.out.println("Error duplicate keys aren't allowed");// hence it displays error message
                    // if multiple values have same keys 
-                   System.out.println("Duplicate key and corresponding value ommited");
+                   System.out.println("Duplicate key and corresponding value ommited"); // This message is a little unclear
                } else {//otherwise
                    this.keys.add(Integer.valueOf(keys[i]));// add the keys
                    this.values.add(values[i]);// and corresponding values to the arraylists keys,values
@@ -66,30 +66,56 @@ public class Dictionary {
            }
         }
     }
+    /**
+     * Inserts a (key,value) pair in the arraylist. This is quite similar to the constructor
+     * SUGGESTION - instead of using add methods of arraylist, the insert method
+     * created here could be used to push the pair on the arraylist.
+     * This code also looks like a repetition of the constructor which takes key and value arrays
+     * as arguments
+     * 
+     * @param key
+     * @param value
+     */
 
     public void insert(int key, String value) {
-        if (this.keys.size() == 20) {
-            System.out.println("Error dictionary is full with 20 entries");
+        if (this.keys.size() == 20) { // when the (key,value) pair is inserted, if the size of the 
+        	//array is already 20
+            System.out.println("Error dictionary is full with 20 entries");//it displays an error message
         }
+        
+        /**Too similar to the Dictionary(int[] keys, String[] values) constructor
+         * see that constructor for the comments**/
         if (this.keys.contains(Integer.valueOf(key))) {
             System.out.println("Error duplicate keys aren't allowed");
-
         } else {
             this.keys.add(Integer.valueOf(key));
             this.values.add(value);
         }
     }
 
+    /** 
+     * @param key
+     * @return For a given input key, the string value is returned
+     */
     public String getValue(int key) {
+    	// instantiation of new variable was unnecessary, return statement could have been 
+    	//return this.values.get(this.keys.indexOf(Integer.valueOf(key)));
         int index = this.keys.indexOf(Integer.valueOf(key));
         return this.values.get(index);
     }
     
+    /**
+     * @param value
+     * @return key for a String value that user has input
+     */
     public int getKey(String value) {
+    	// allocation of new memory unnecessary as both 
+    	//the statements can be merged into one
         int index = this.values.indexOf(value);
         return this.keys.get(index).intValue();
     }
     
+   
     public void remove(int key) {
         int index = this.keys.indexOf(Integer.valueOf(key));
         this.values.remove(index);
